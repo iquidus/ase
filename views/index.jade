@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  .col-xs-12.col-md-8.col-md-offset-2
+    .panel.panel-default
+        .panel-heading(style='text-align:center;')
+          Strong Latest Transactions of Interest
+        table.table.table-striped.table-bordered.alerts-table
+          thead
+            th timestamp
+            th.hidden-xs txid
+            th amount
+            th 
+          tbody
+            each tx in txs
+              - var amount = tx.total / 100000000
+              if amount > 10000
+                - var time = format_unixtime(tx.timestamp) 
+                tr.danger(style='text-align:center') 
+                  td #{time}
+                  td.hidden-xs #{tx.txid}
+                  td #{amount}
+                  td
+                    a(href='http://explorer.getjumbucks.com/tx/#{tx.txid}', target='_blank')
+                      span.glyphicon.glyphicon-eye-open
+              else if amount > 1000
+                - var time = format_unixtime(tx.timestamp)
+                tr.warning(style='text-align:center')
+                  td #{time}
+                  td.hidden-xs #{tx.txid}
+                  td #{amount}
+                  td
+                    a(href='http://explorer.getjumbucks.com/tx/#{tx.txid}', target='_blank')
+                      span.glyphicon.glyphicon-eye-open
+              else if amount > 100
+                - var time = format_unixtime(tx.timestamp)
+                tr(style='text-align:center')
+                  td #{time}
+                  td.hidden-xs #{tx.txid}
+                  td #{amount}
+                  td
+                    a(href='http://explorer.getjumbucks.com/tx/#{tx.txid}', target='_blank')
+                      span.glyphicon.glyphicon-eye-open
+
+
+
+
+
