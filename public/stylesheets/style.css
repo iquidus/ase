@@ -19,3 +19,29 @@ a {
 a {
   color: #fff;
 }
+
+.dataTables_info, .dataTables_length {
+  padding-left: 10px;
+}
+
+.dataTables_length {
+  padding-top: 10px;
+}
+
+.dataTables_paginate {
+  padding-right: 10px;
+}
+
+.dataTables_filter {
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.dataTables_filter label input{
+  margin-left: 10px;
+}
+
+.dataTables_length label select{
+  margin-right: 5px;
+  margin-left: 5px;
+}
